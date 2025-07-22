@@ -1,0 +1,19 @@
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.task-board .col-md-4 {
+  padding-right: 15px;
+}
+
+.task-board .col-md-8 {
+  padding-left: 15px;
+}

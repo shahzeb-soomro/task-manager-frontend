@@ -1,0 +1,26 @@
+<form (ngSubmit)="onSubmit()" class="mb-4 p-3 border rounded shadow-sm bg-light">
+  <mat-form-field appearance="fill" class="w-100 mb-3">
+    <mat-label>Task Title</mat-label>
+    <input matInput [(ngModel)]="formTask.title" name="title" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-100 mb-3">
+    <mat-label>Task Description</mat-label>
+    <textarea matInput [(ngModel)]="formTask.description" name="description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-100 mb-3">
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="formTask.status" name="status">
+      <mat-option value="To Do">To Do</mat-option>
+      <mat-option value="In Progress">In Progress</mat-option>
+      <mat-option value="Done">Done</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="text-end">
+    <button mat-raised-button color="primary" type="submit" class="px-4">
+      {{ formTask._id ? 'Update' : 'Create' }} Task
+    </button>
+  </div>
+</form>

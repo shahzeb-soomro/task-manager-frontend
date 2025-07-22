@@ -1,0 +1,21 @@
+<mat-card class="mb-3 task-card" [ngClass]="getStatusClass()">
+  <mat-card-header>
+    <mat-card-title>{{ task.title }}</mat-card-title>
+    <mat-chip class="status-chip" [style.background-color]="getStatusChipColor()">
+      {{ task.status | titlecase }}
+    </mat-chip>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p class="text-muted">{{ task.description || 'No description.' }}</p>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-icon-button color="primary" (click)="onEdit()" matTooltip="Edit Task">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="onDelete()" matTooltip="Delete Task">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

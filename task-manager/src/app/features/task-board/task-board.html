@@ -1,0 +1,31 @@
+<div class="container py-4">
+  <div class="row">
+    <div class="col-md-4">
+      <app-task-form
+        [task]="selectedTask"
+        (save)="selectedTask ? onUpdate($event) : onCreate($event)">
+      </app-task-form>
+    </div>
+
+    <div class="col-md-8">
+      <ng-container *ngIf="tasks.length > 0; else noTasks">
+        <div cdkDropList (cdkDropListDropped)="drop($event)">
+          <div *ngFor="let task of tasks" cdkDrag>
+            <app-task-card
+              [task]="task"
+              (edit)="onEditRequest($event)"
+              (delete)="onDelete($event)">
+            </app-task-card>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #noTasks>
+        <mat-card class="text-center p-4">
+          <mat-icon>info</mat-icon>
+          <p class="text-muted">No tasks to show.</p>
+        </mat-card>
+      </ng-template>
+    </div>
+  </div>
+</div>
