@@ -30,7 +30,6 @@ export class TaskBoard {
 
   async loadTasks() {
     this.taskService.getTasks().subscribe((tasks) => {
-      console.log('Tasks loaded:', tasks);
       this.tasks = [...tasks].sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
       this.cd.detectChanges();
     });
